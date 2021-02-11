@@ -3,6 +3,7 @@ import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 
 import Holla from '../components/Holla'
+import Profile from '../components/Profile'
 // import PropTypes from 'prop-types'
 // import { connect } from 'react-redux'
 
@@ -21,7 +22,7 @@ export const Home = (props) => {
   return (
     <Grid container spacing={3}>
       <Grid item sm={4} xs={12}>
-        <p>Profile...</p>
+        <Profile />
       </Grid>
       <Grid item sm={8} xs={12}>
         {hollas ? (
