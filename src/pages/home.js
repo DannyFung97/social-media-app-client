@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import Grid from "@material-ui/core/Grid";
 
-import Holla from '../components/Holla'
-import Profile from '../components/Profile'
-// import PropTypes from 'prop-types'
-// import { connect } from 'react-redux'
+import Holla from '../components/holla/Holla'
+import Profile from '../components/profile/Profile'
+import HollaSkeleton from "../util/HollaSkeleton";
 
-export const Home = (props) => {
-  const [hollas, setHollas] = useState(null);
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { getHollas } from '../redux/actions/dataActions';
+
+export const Home = ({ getHollas, data: { hollas, loading } }) => {
 
   useEffect(() => {
-    axios
-      .get("/hollas")
-      .then((res) => {
-        setHollas(res.data);
-      })
-      .catch((err) => console.log(err));
+    getHollas();
   }, []);
 
   return (
@@ -25,23 +22,24 @@ export const Home = (props) => {
         <Profile />
       </Grid>
       <Grid item sm={8} xs={12}>
-        {hollas ? (
+        {!loading ? (
           hollas.map((holla) => <Holla holla={holla} key={holla.hollaId} />)
         ) : (
-          <p>Loading...</p>
+          <HollaSkeleton />
         )}
       </Grid>
     </Grid>
   );
 };
 
-// home.propTypes = {
-//     props: PropTypes
-// }
+Home.propTypes = {
+  getHollas: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
+const mapStateToProps = (state) => ({
+  data: state.data
+});
 
 // export default connect(mapStateToProps, mapDispatchToProps)(home)
-export default Home;
+export default connect(mapStateToProps, { getHollas })(Home);

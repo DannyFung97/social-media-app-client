@@ -14,6 +14,10 @@ html, body {
   margin: auto;
 }
 
+.nav-container svg {
+  color: white
+}
+
 .logo {
   width: 40px;
   height: 40px;

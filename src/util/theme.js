@@ -1,19 +1,28 @@
 export default {
   palette: {
     primary: {
-      light: "#c6334b",
-      main: "#b8001e",
-      dark: "#800015",
-      contrastText: "#fff",
+      light: '#c6334b',
+      main: '#b8001e',
+      dark: '#800015',
+      contrastText: '#fff',
     },
     secondary: {
-      light: "#707070",
-      main: "#4d4d4d",
-      dark: "#353535",
-      contrastText: "#fff",
+      light: '#f7af52',
+      main: '#f59c27',
+      dark: '#ab6d1b',
+      contrastText: '#fff',
     },
   },
-  pageStyle: {
+  common: {
+    invisibleSeparator: {
+      border: 'none',
+      margin: 4
+    },
+    visibleSeparator: {
+      width: '100%',
+      borderBottom: '1px solid rgba(0,0,0,0.1)',
+      marginBottom: 20
+    },
     typography: {
       useNextVariants: true,
     },
@@ -30,7 +39,7 @@ export default {
       margin: "10px auto",
     },
     button: {
-      marginTop: 20,
+      marginTop: 10,
       position: "relative",
     },
     customError: {
@@ -44,8 +53,6 @@ export default {
     progress: {
       position: "absolute",
     },
-  },
-  profileStyle: {
     paper: {
       padding: 20,
     },
@@ -72,7 +79,7 @@ export default {
           verticalAlign: "middle",
         },
         "& a": {
-          color: "#00bcd4",
+          color: "#b8001e",
         },
       },
       "& hr": {
@@ -91,8 +98,5 @@ export default {
         margin: "20px 10px",
       },
     },
-    button: {
-      float: "right",
-    },
-  },
+  }
 };

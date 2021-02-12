@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../redux/actions/userActions";
 
 const styles = (theme) => ({
-  ...theme.pageStyle,
+  ...theme.common,
 });
 
 const Login = ({ classes, loginUser, UI: { errors: uiErrors, loading } }) => {
@@ -36,7 +36,6 @@ const Login = ({ classes, loginUser, UI: { errors: uiErrors, loading } }) => {
       email: email,
       password: password,
     };
-    console.log(history)
     loginUser(userData, history);
   };
 

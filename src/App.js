@@ -10,12 +10,13 @@ import store from "./redux/store";
 import { SET_AUTHENTICATED } from './redux/types';
 import { logoutUser, getUserData } from './redux/actions/userActions';
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import AuthRoute from "./util/AuthRoute";
 
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
+import user from "./pages/user";
 import axios from "axios";
 
 const theme = createMuiTheme(themeFile);
@@ -53,6 +54,8 @@ function App() {
                   path="/signup"
                   component={signup}
                 />
+                <Route exact path="/users/:handle" component={user} />
+                <Route exact path="/users/:handle/holla/:hollaId" component={user} />
               </Switch>
             </div>
           </Router>

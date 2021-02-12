@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { signupUser } from '../redux/actions/userActions';
 
 const styles = (theme) => ({
-  ...theme.pageStyle
+  ...theme.common
 });
 // import { connect } from 'react-redux'
 
@@ -41,7 +41,6 @@ const Signup = ({ classes, signupUser, UI: { errors: uiErrors, loading } }) => {
       confirmPassword: confirmPassword,
       handle: handle
     };
-    console.log(history)
     signupUser(newUserData, history);
   };
 
