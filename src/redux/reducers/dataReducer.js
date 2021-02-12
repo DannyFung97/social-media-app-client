@@ -7,6 +7,7 @@ import {
   POST_HOLLA,
   SET_HOLLA,
   SUBMIT_COMMENT,
+  REPLACE_IMAGES
 } from "../types";
 
 const initialState = {
@@ -35,9 +36,11 @@ export default function (state = initialState, action) {
       };
     case LIKE_HOLLA:
     case UNLIKE_HOLLA:
-      state.hollas[state.hollas.findIndex(
-        (holla) => holla.hollaId === action.payload.hollaId
-      )] = action.payload;
+      state.hollas[
+        state.hollas.findIndex(
+          (holla) => holla.hollaId === action.payload.hollaId
+        )
+      ] = action.payload;
       if (state.holla.hollaId === action.payload.hollaId) {
         state.holla = action.payload;
       }
@@ -45,9 +48,10 @@ export default function (state = initialState, action) {
         ...state,
       };
     case DELETE_HOLLA:
-      state.hollas.splice(state.hollas.findIndex(
-        (holla) => holla.hollaId === action.payload
-      ), 1);
+      state.hollas.splice(
+        state.hollas.findIndex((holla) => holla.hollaId === action.payload),
+        1
+      );
       return {
         ...state,
       };
@@ -63,7 +67,30 @@ export default function (state = initialState, action) {
           ...state.holla,
           comments: [action.payload, ...state.holla.comments],
         },
+        hollas: state.hollas.map(_holla => {
+          if (_holla.hollaId == action.payload.hollaId) {
+            return {
+              ..._holla,
+              commentCount: _holla.commentCount + 1
+            }
+          }
+          return _holla
+        }),
       };
+    case REPLACE_IMAGES: {
+      return {
+        ...state,
+        hollas: state.hollas.map(_holla => {
+          if (_holla.userHandle == action.payload.userHandle) {
+            return {
+              ..._holla,
+              userImage: action.payload.imageUrl
+            }
+          }
+          return _holla
+        })
+      }
+    }
     default:
       return state;
   }

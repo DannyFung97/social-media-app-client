@@ -5,7 +5,7 @@ import {
   LOADING_UI,
   SET_UNAUTHENTICATED,
   LOADING_USER,
-  MARK_NOTIFICATIONS_READ
+  MARK_NOTIFICATIONS_READ,
 } from "../types";
 
 import axios from "axios";
@@ -65,7 +65,7 @@ export const getUserData = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const uploadImage = formData => dispatch => {
+export const uploadImage = (formData, handle) => dispatch => {
   dispatch({ type: LOADING_USER });
   axios.post('/user/image', formData)
   .then(() => {

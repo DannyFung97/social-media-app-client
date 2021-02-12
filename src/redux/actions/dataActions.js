@@ -10,7 +10,8 @@ import {
     LOADING_UI,
     SET_HOLLA,
     STOP_LOADING_UI,
-    SUBMIT_COMMENT
+    SUBMIT_COMMENT,
+    REPLACE_IMAGES
   } from '../types';
   import axios from 'axios';
   
@@ -106,6 +107,7 @@ import {
         });
       });
   };
+
   export const deleteHolla = (hollaId) => (dispatch) => {
     axios
       .delete(`/holla/${hollaId}`)
@@ -132,6 +134,10 @@ import {
         });
       });
   };
+
+  export const replaceImages = (imageUrl, userHandle) => dispatch => {
+    dispatch({ type: REPLACE_IMAGES, payload: { imageUrl, userHandle } });
+  }
   
   export const clearErrors = () => (dispatch) => {
     dispatch({ type: CLEAR_ERRORS });

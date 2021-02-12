@@ -8,7 +8,7 @@ import PostHolla from "../holla/PostHolla";
 import hotTops from "../../assets/hot-tops.png";
 
 import { AppBar, Toolbar, Button } from "@material-ui/core";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 import HomeIcon from "@material-ui/icons/Home";
 import PersonIcon from "@material-ui/icons/Person";
@@ -17,13 +17,6 @@ import Notifications from "./Notifications";
 import { logoutUser } from "../../redux/actions/userActions";
 
 function Navbar({ user, logoutUser }) {
-  // const [userLink, setUserLink] = useState(null);
-
-  // useEffect(() => {
-  //   if(user.authenticated) {
-  //     setUserLink(user.credentials.handle);
-  //   }
-  // }, [])
 
   const handleLogout = () => {
     logoutUser();

@@ -34,7 +34,7 @@ const styles = (theme) => ({
   },
   closeButton: {
     position: 'absolute',
-    left: '90%'
+    left: '80%'
   },
   expandButton: {
     // position: 'absolute',
@@ -125,7 +125,7 @@ function HollaDialog({
         <PersonalButton tip="Comments">
           <ChatIcon color="primary" />
         </PersonalButton>
-        <span>{commentCount} comments</span>
+        <span>{comments?.length} comments</span>
       </Grid>
       {/* <hr className={classes.visibleSeparator} /> */}
       <CommentForm hollaId={hollaId} />

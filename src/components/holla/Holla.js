@@ -74,9 +74,6 @@ function Holla({
         <Typography variant="body1">{body}</Typography>
         <LikeButton hollaId={hollaId} />
         <span>{likeCount}</span>
-        {/* <PersonalButton tip="comments">
-            <ChatIcon color="primary" />
-          </PersonalButton> */}
         <HollaDialog
           hollaId={hollaId}
           userHandle={userHandle}

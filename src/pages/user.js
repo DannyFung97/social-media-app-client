@@ -16,7 +16,6 @@ function User({ match, getUserPage, data: { hollas, loading } }) {
   const [hollaIdParam, setHollaIdParam] = useState(null);
 
   useEffect(() => {
-    console.log('here')
     const handle = match.params.handle;
     const hollaId = match.params.hollaId;
 
@@ -30,6 +29,18 @@ function User({ match, getUserPage, data: { hollas, loading } }) {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    if (match.params.handle) {
+      getUserPage(match.params.handle);
+      axios
+        .get(`/user/${match.params.handle}`)
+        .then((res) => {
+          setProfile(res.data.user);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [match.params.handle]);
 
   const hollasMarkup = loading ? (
     <HollaSkeleton />
@@ -54,7 +65,7 @@ function User({ match, getUserPage, data: { hollas, loading } }) {
           <StaticProfile profile={profile} />
         )}
       </Grid>
-      <Grid item sm={8} xs={12}>
+      <Grid item sm={8} xs={12} style={{overflowY: 'auto', height: '75vh'}}>
         {hollasMarkup}
       </Grid>
     </Grid>

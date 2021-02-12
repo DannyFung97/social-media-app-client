@@ -21,7 +21,8 @@ import axios from "axios";
 
 const theme = createMuiTheme(themeFile);
 
-let authenticated;
+axios.defaults.baseURL = 'https://us-central1-hot-tops.cloudfunctions.net/api';
+
 const token = localStorage.FBIdToken;
 if (token) {
   const decodedToken = jwtDecode(token);
@@ -54,8 +55,8 @@ function App() {
                   path="/signup"
                   component={signup}
                 />
-                <Route exact path="/users/:handle" component={user} />
                 <Route exact path="/users/:handle/holla/:hollaId" component={user} />
+                <Route exact path="/users/:handle" component={user} />
               </Switch>
             </div>
           </Router>

@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 // MUI
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { Autorenew } from "@material-ui/icons";
 
 const styles = (theme) => ({
   ...theme.common,
@@ -18,11 +19,15 @@ const styles = (theme) => ({
   commentData: {
     marginLeft: 20,
   },
+  commentContainer: {
+    overflowY: 'auto',
+    height: "50vh"
+  }
 });
 
 function Comments({ comments, classes }) {
   return (
-    <Grid container>
+    <Grid container className={classes.commentContainer}>
       {comments.map((comment, index) => {
         const { body, createdAt, userImage, userHandle } = comment;
         return (
