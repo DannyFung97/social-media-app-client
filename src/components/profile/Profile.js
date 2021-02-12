@@ -117,7 +117,7 @@ function Profile({
         </Typography>
         <img src={AppIcon} alt="Flame" className={classes.image} />
         <Typography variant="body2" align="center">
-          No profile found, please login
+          Create a holla now by logging in!
         </Typography>
         <div className={classes.buttons}>
           <Button
