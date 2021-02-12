@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import EditDetails from "./EditDetails";
 import ProfileSkeleton from "../../util/ProfileSkeleton";
+import AppIcon from "../../assets/hot-tops.png";
 
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -108,6 +109,13 @@ function Profile({
       </Paper>
     ) : (
       <Paper className={classes.paper}>
+        <Typography variant="h4" align="center" color='primary'>
+          HotTopics
+        </Typography>
+        <Typography variant="body1" align="center">
+          Social media for hollering about hot topics
+        </Typography>
+        <img src={AppIcon} alt="Flame" className={classes.image} />
         <Typography variant="body2" align="center">
           No profile found, please login
         </Typography>

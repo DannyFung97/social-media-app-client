@@ -65,7 +65,7 @@ function User({ match, getUserPage, data: { hollas, loading } }) {
           <StaticProfile profile={profile} />
         )}
       </Grid>
-      <Grid item sm={8} xs={12} style={{overflowY: 'auto', height: '75vh'}}>
+      <Grid item sm={8} xs={12} style={{overflowY: 'auto', height: '80vh'}}>
         {hollasMarkup}
       </Grid>
     </Grid>

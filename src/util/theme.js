@@ -55,6 +55,7 @@ export default {
     },
     paper: {
       padding: 20,
+      textAlign: 'center'
     },
     profile: {
       "& .image-wrapper": {

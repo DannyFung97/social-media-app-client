@@ -19,7 +19,7 @@ import EditIcon from "@material-ui/icons/Edit";
 const styles = (theme) => ({
   ...theme.common,
   button: {
-    left: "80%",
+    // left: "80%",
   },
 });
 
