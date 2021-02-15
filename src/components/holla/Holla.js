@@ -25,7 +25,8 @@ const styles = {
     marginBottom: 20,
   },
   image: {
-    minWidth: 200,
+    minWidth: 'min(200px, 35vw)',
+    // minWidth: 200,
     backgroundSize: "cover",
   },
   content: {
